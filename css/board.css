@@ -1,0 +1,82 @@
+/* ========================================
+   Chess Board Styling
+   ======================================== */
+
+#board-container {
+  width: min(560px, calc(100vw - 680px));
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 0 2px var(--border-accent), var(--shadow-gold), var(--shadow-card);
+  transition: var(--transition);
+  position: relative;
+}
+
+#board-container:hover {
+  box-shadow: 0 0 0 2px var(--gold-light), 0 0 50px rgba(201, 168, 76, 0.2), var(--shadow-card);
+}
+
+/* Board square colors — dark theme */
+.board-b72b1 .white-1e1d7 {
+  background-color: #b0a896 !important;
+}
+
+.board-b72b1 .black-3c85d {
+  background-color: #6b6353 !important;
+}
+
+/* Light board theme */
+body.light-board .board-b72b1 .white-1e1d7 {
+  background-color: #eeeed2 !important;
+}
+
+body.light-board .board-b72b1 .black-3c85d {
+  background-color: #769656 !important;
+}
+
+/* Legal move dot highlights */
+.highlight-legal {
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.5) 22%, transparent 23%) !important;
+}
+
+.highlight-legal-capture {
+  background: radial-gradient(circle, transparent 48%, rgba(201, 168, 76, 0.5) 50%) !important;
+}
+
+/* Last move highlight */
+.highlight-last-from {
+  box-shadow: inset 0 0 0 3px rgba(201, 168, 76, 0.35) !important;
+}
+
+.highlight-last-to {
+  background-color: rgba(201, 168, 76, 0.2) !important;
+}
+
+/* Check highlight */
+.highlight-check {
+  background: radial-gradient(circle, rgba(232, 85, 85, 0.7) 0%, rgba(232, 85, 85, 0.2) 50%, transparent 70%) !important;
+}
+
+/* Piece images — ensure proper sizing */
+.board-b72b1 .piece-417db {
+  transition: none !important;
+}
+
+/* Board thinking overlay */
+.board-thinking {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Capture animation class */
+.capture-shake {
+  animation: captureShake 0.3s ease;
+}
+
+@keyframes captureShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
